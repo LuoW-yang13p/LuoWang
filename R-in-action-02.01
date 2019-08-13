@@ -8,4 +8,4 @@ mymatrix <- matrix(1:20, nrow=5, ncol=4,byrow=TRUE) 		#按列进行填充
 mymatrix1 <- matrix(1:20, nrow=5, ncol=4,byrow=FALSE) 		#按行进行填充
 
 
-
+A is not personal & B is A PPT
