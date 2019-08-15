@@ -1,11 +1,58 @@
+
 第02章：练习集
-#----------------------------------------#
+
 #-----------练习使用Matrix矩阵------------#
-#----------------------------------------#
 
-
+# 示例02.02：填充矩阵
 mymatrix <- matrix(1:20, nrow=5, ncol=4,byrow=TRUE) 		#按列进行填充
 mymatrix1 <- matrix(1:20, nrow=5, ncol=4,byrow=FALSE) 		#按行进行填充
 
 
-A is not personal & B is A PPT
+#-----------练习使用Array数组------------#
+
+# 示例02.03：使用4维数组，每一维均为2个数字、一共16个数字
+dim1 <- c("A1","A2") 			# dim是dimension的缩写，代表“维度”的意思
+dim2 <- c("B1","B2")
+dim3 <- c("C1","C2")
+dim4 <- c("D1","D2")
+z <- array(1:16, c(2,2,2,2), dimnames=list(dim1, dim2, dim3, dim4))
+z
+
+#-----------练习使用数据框---------------#
+
+# 示例02.04：构建并展示数据框
+patientID <- c(1,2,3,4)
+age <- c(25,34,28,52)
+diabetes <- c("Type1","Type2","Type3","Type4")
+status <- c("Poor","Improved","Excellent","Poor")
+patientdata <- data.frame(patientID, age, diabetes, status)
+patientdata
+
+# 示例02.05：构建并展示数据框部分内容
+
+patientID <- c(1,2,3,4)
+age <- c(25,34,28,52)
+diabetes <- c("Type1","Type2","Type3","Type4")
+status <- c("Poor","Improved","Excellent","Poor")
+patientdata <- data.frame(patientID, age, diabetes, status)
+
+patientdata[1:2]						# 只展示数据框中最前面两列
+patientdata[c("diabetes", "status")]		# 只展示数据框中指令列名的列
+patientdata$age							# 选取一个给定数据框中某列特定变量
+
+
+
+
+# 示例02.06：如果各列数据数量不一致，会出现什么情况？
+# 当运行错误代码时，下面为报错内容：
+#  patientdata <- data.frame(patientID, age, diabetes, status)
+#  Error in data.frame(patientID, age, diabetes, status) : 
+#    参数值意味着不同的行数: 3, 5, 4
+  
+patientID <- c(1,2,3)
+age <- c(25,34,28,52,78)
+diabetes <- c("Type1","Type2","Type3","Type4")
+status <- c("Poor","Improved","Excellent","Poor")
+
+patientdata <- data.frame(patientID, age, diabetes, status)
+patientdata
