@@ -1,0 +1,51 @@
+#------------------------------------#
+# 		R语言实战:第03章		     #
+#------------------------------------#
+
+# 示例03.01 - 
+
+mydata <- data.frame(age=numeric(0), gender=character(0), weight=numeric())
+mydata <- edit(mydata)
+
+fix(mydata)							# 效果与mydata <- edit(mydata)同样
+
+#------------------------------------#
+
+# Listing 02.11 - 通过分隔符文本文件中导入
+
+install.packages("RODBC")				# 前置条件，载入RODBC包来实现访问EXCEL文件
+
+# 说明：张家界导入文件分别为：
+1、地市（string）
+2、手机号码（long）
+3、区域（string）
+4、年龄（numeric)
+5、性别（string）
+6、手机品牌（string）
+7、DOU（numeric）
+8、ARPU（numeric）
+9、主套餐名称（string）
+10、主套餐价值（numeric）
+
+# 由于无法安装新的package"RODBC"，该内容暂时先略过
+# 暂时先不阅读第二章剩余部分内容
+
+#------------------------------------#
+
+
+# Listing 03.02 - 使用图形
+
+attach(mtcars)
+plot(wt, mpg)
+
+#	attach实际上就是载入dataframe格式的文件，并使用plot设计散点图
+
+attach(channel)
+plot(DOU, 年龄)
+plot(DOU, ARPU)
+
+#	均可以实现制作散点图的目标
+
+
+
+
