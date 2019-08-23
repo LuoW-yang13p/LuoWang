@@ -1,5 +1,5 @@
 #------------------------------------#
-# 		R语言实战:第03章		     #
+# 		R语言实战:第03章		            #
 #------------------------------------#
 
 # 示例03.01 - 
@@ -46,6 +46,44 @@ plot(DOU, ARPU)
 
 #	均可以实现制作散点图的目标
 
+attach(channel)
+plot(DOU, ARPU)
+abline(lm(DOU~ARPU))					# 制作拟合曲线
+title("客户DOU与ARPU值关系图")
+detach(channel)
+
+pdf("DOU与ARPU值关系图.pdf")
+	attach(channel)
+	plot(DOU, ARPU)
+	abline(lm(DOU~ARPU))					# 制作拟合曲线
+	title("客户DOU与ARPU值关系图")
+	detach(channel)
+dev.off()
+
+#		输出为PDF时，不支持中文输出，但内部显示时中文是正常的
+
+
+attach(channel)
+dev.new()
+plot(DOU, ARPU)
+dev.new()
+plot(DOU, 年龄)
+detach(channel)
 
 
 
+plot(DOU, ARPU, type="b")
+
+
+# Listing 03.07：使用图形控制参数控制图形外观
+
+attach(channel)
+opar <- par(no.readonly=TRUE)
+par(pin=c(2,3))
+par(lwd=2, cex=1.5)
+par(cex.axis=.75, font.axis=3)
+plot(DOU, ARPU, type="b", pch=19, lty=2, col="red")
+dev.new()
+plot(DOU, ARPU, type="b", pch=23, lty=6, col="blue", bg="green")
+par(opar)
+detach(channel)
